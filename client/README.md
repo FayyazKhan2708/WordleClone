@@ -5,13 +5,15 @@ This is the React frontend for the Wordle Clone application, built with React, T
 ## 🚀 Features
 
 - **Responsive UI**: Optimized for all device sizes
-- **User Authentication**: Secure login and registration
+- **User Authentication**: Secure login and registration with consistent form components
 - **Game Board**: Interactive game with letter animations
 - **Virtual Keyboard**: Dynamic keyboard with color feedback
 - **Statistics**: Track your game performance
 - **Dark/Light Mode**: Toggle between themes with smooth transitions
 - **Toast Notifications**: Elegant feedback messages
 - **How-to-play Guide**: Built-in instructions modal
+- **Random Word Selection**: Words are chosen randomly for variety
+- **Improved Word Validation**: Better handling of valid word submissions
 
 ## 📂 Project Structure
 
@@ -23,6 +25,7 @@ client/
 ├── src/
 │   ├── components/    # Reusable UI components
 │   │   ├── DarkModeToggle.js  # Theme toggle component
+│   │   ├── FormInput.js       # Reusable form input component
 │   │   ├── GameBoard.js       # Main game board
 │   │   ├── GameCell.js        # Individual letter cell
 │   │   ├── GameRow.js         # Row of game cells
@@ -44,6 +47,10 @@ client/
 │   │   └── Stats.js           # Statistics page
 │   │
 │   ├── styles/        # Component-specific styles
+│   │   ├── FormInput.css      # Shared form input styles
+│   │   ├── Login.css          # Login page styles
+│   │   ├── Register.css       # Register page styles
+│   │   └── [Other styles]     # Component-specific styles
 │   │
 │   ├── utils/         # Utility functions
 │   │
@@ -99,37 +106,24 @@ Builds the app for production in the `build` folder.
 **Note: this is a one-way operation!**
 Ejects the app from Create React App configuration for advanced customization.
 
-## 🎨 Theme Customization
+## 🎨 UI Improvements
 
-The app uses Tailwind CSS for styling. To customize the theme:
+### Form Components
+The application now uses a shared `FormInput` component for consistency across login and registration forms with:
+- Consistent styling and behavior
+- Error handling
+- Password visibility toggle
+- Icon support
+- Cross-browser compatibility
 
-1. Edit `tailwind.config.js` to modify colors, fonts, and other design elements
-2. Update CSS files in the `styles/` directory for component-specific styling
+### Layout and Z-Index Management
+- Proper z-index layering for header and forms
+- Fixed header overlay issues with scrolling content
+- Consistent spacing and padding across the application
 
-## 🌗 Dark Mode Implementation
-
-Dark mode is implemented using:
-
-1. `ThemeContext.js`: Manages theme state and provides toggle functionality
-2. `DarkModeToggle.js`: UI component for toggling themes
-3. Tailwind's dark mode classes: `dark:` prefix for dark mode styles
-4. CSS transitions for smooth theme changes
-
-### Usage in components:
-
-```jsx
-import { useTheme } from "../contexts/ThemeContext";
-
-function YourComponent() {
-  const { darkMode, toggleDarkMode } = useTheme();
-
-  return (
-    <div className="bg-white dark:bg-gray-800">
-      {/* Your component content */}
-    </div>
-  );
-}
-```
+### Dark Mode Support
+- All components now properly support both light and dark themes
+- Consistent color schemes throughout the application
 
 ## 🔒 Authentication
 
@@ -139,12 +133,13 @@ Authentication is handled through `AuthContext.js` which:
 2. Provides login/logout/register functions
 3. Stores JWT token in localStorage
 4. Protects routes using `PrivateRoute.js`
+5. Provides context-aware header navigation (hiding login/register buttons on respective pages)
 
 ## 🎮 Game Logic
 
 Game state is managed through `GameContext.js` which:
 
-1. Handles word generation and validation
+1. Handles random word generation and enhanced validation
 2. Tracks current game state
 3. Manages guess history and letter states
 4. Updates statistics on game completion
@@ -157,6 +152,7 @@ The app is built with modular components that can be customized:
 - `GameRow.js`: Rows of letter cells with validation
 - `Keyboard.js`: Interactive keyboard that updates based on guesses
 - `Toast.js`: Configurable notification component
+- `FormInput.js`: Reusable form input component for consistent styling
 
 ## 📱 Responsive Design
 
@@ -165,6 +161,7 @@ The UI is fully responsive through:
 1. Tailwind CSS breakpoints
 2. Flexbox and Grid layouts
 3. Mobile-first design approach
+4. Properly positioned UI elements with appropriate z-index management
 
 ## 🚀 Deployment
 

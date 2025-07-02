@@ -6,7 +6,8 @@ This is the backend server for the Wordle Clone application, built with Node.js,
 
 - **RESTful API**: Clean and organized endpoints
 - **User Authentication**: JWT-based secure authentication
-- **Word Generation**: Random word selection from database
+- **Enhanced Word Generation**: Truly random word selection from database
+- **Improved Word Validation**: Accepts any valid 5-letter word for better gameplay
 - **Game Logic**: Word validation and game state management
 - **Statistics**: Track and store user performance metrics
 - **MongoDB Integration**: Efficient data storage and retrieval
@@ -182,12 +183,15 @@ Runs the test suite.
 
 ## 🎮 Game Logic
 
-1. Word is selected from the database based on the day
-2. User submits guesses through the API
-3. Each guess is validated and compared to the target word
-4. Feedback is generated for each letter in the guess
-5. Game state is updated and saved to the database
-6. Statistics are updated when the game concludes
+The game logic has been improved with the following enhancements:
+
+1. **Truly Random Word Selection**: Words are now selected completely randomly from the database instead of by usage count, providing a more varied gameplay experience
+2. **Enhanced Word Validation**:
+   - Accepts any valid 5-letter word as a guess, even if not in the target word database
+   - Provides appropriate feedback for valid words that aren't the target
+   - Improves user experience by allowing a wider range of valid guesses
+3. Game state is updated and saved to the database
+4. Statistics are updated when the game concludes
 
 ## 🔄 Error Handling
 
