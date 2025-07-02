@@ -1,0 +1,134 @@
+.how-to-play-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  padding: 1rem;
+}
+
+.how-to-play-modal {
+  background-color: white;
+  color: #1f2937;
+  border-radius: 0.5rem;
+  max-width: 32rem;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.dark .how-to-play-modal {
+  background-color: #1f2937;
+  color: white;
+}
+
+.how-to-play-content {
+  padding: 1.5rem;
+  position: relative;
+}
+
+.how-to-play-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: #4b5563;
+}
+
+.dark .how-to-play-close {
+  color: white;
+}
+
+.how-to-play-close:hover {
+  color: #1f2937;
+}
+
+.dark .how-to-play-close:hover {
+  color: #d1d5db;
+}
+
+.how-to-play-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.how-to-play-description {
+  margin-bottom: 1rem;
+}
+
+.how-to-play-list {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.how-to-play-list li {
+  margin-bottom: 0.5rem;
+}
+
+.how-to-play-subtitle {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.how-to-play-example {
+  margin-bottom: 1rem;
+}
+
+.how-to-play-tiles {
+  display: flex;
+  margin-bottom: 0.5rem;
+}
+
+.how-to-play-tile {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.25rem;
+  font-weight: 700;
+  font-size: 1.5rem;
+  border: 2px solid #e5e7eb;
+}
+
+.dark .how-to-play-tile {
+  border: 2px solid #374151;
+}
+
+.how-to-play-tile:last-child {
+  margin-right: 0;
+}
+
+.how-to-play-tile-correct {
+  background-color: #10b981;
+}
+
+.how-to-play-tile-present {
+  background-color: #f59e0b;
+}
+
+.how-to-play-tile-absent {
+  background-color: #4b5563;
+}
+
+.how-to-play-tile-default {
+  background-color: #e5e7eb;
+}
+
+.dark .how-to-play-tile-default {
+  background-color: #4b5563;
+}
+
+.how-to-play-footer {
+  margin-top: 2rem;
+  border-top: 1px solid #e5e7eb;
+  padding-top: 1rem;
+}
+
+.dark .how-to-play-footer {
+  border-top: 1px solid #374151;
+}

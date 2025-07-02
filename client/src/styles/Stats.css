@@ -1,0 +1,208 @@
+.stats-container {
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.stats-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.stats-card {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.stats-card-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.stats-card-label {
+  font-size: 0.875rem;
+  color: #4b5563;
+}
+
+.stats-subtitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 1rem;
+}
+
+.guess-distribution {
+  margin-bottom: 2rem;
+}
+
+.guess-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.guess-label {
+  width: 1.5rem;
+  color: #4b5563;
+  font-weight: 700;
+}
+
+.guess-bar-container {
+  flex: 1;
+  margin-left: 0.5rem;
+}
+
+.guess-bar {
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  color: white;
+  font-weight: 700;
+}
+
+.guess-bar-success {
+  background-color: #10b981;
+}
+
+.guess-bar-fail {
+  background-color: #ef4444;
+}
+
+.history-table-container {
+  background-color: white;
+  border-radius: 0.25rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  overflow-x: auto;
+}
+
+.history-table {
+  width: 100%;
+}
+
+.history-table-header {
+  background-color: #f3f4f6;
+}
+
+.history-table-cell {
+  padding: 0.5rem 1rem;
+  text-align: left;
+}
+
+.history-table-row {
+  border-top: 1px solid #e5e7eb;
+}
+
+.history-word {
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.result-badge {
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.result-badge-success {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.result-badge-fail {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 16rem;
+}
+
+.loading-spinner {
+  height: 3rem;
+  width: 3rem;
+  border-top-width: 2px;
+  border-bottom-width: 2px;
+  border-color: #10b981;
+  border-radius: 9999px;
+  animation: spin 1s linear infinite;
+}
+
+.error-message {
+  background-color: #fee2e2;
+  color: #991b1b;
+  padding: 1rem;
+  border-radius: 0.25rem;
+}
+
+.no-stats-message {
+  background-color: #fef3c7;
+  color: #92400e;
+  padding: 1rem;
+  border-radius: 0.25rem;
+}
+
+.no-games-message {
+  background-color: #f3f4f6;
+  padding: 1rem;
+  border-radius: 0.25rem;
+}
+
+/* Dark mode styles */
+@media (prefers-color-scheme: dark) {
+  .stats-title,
+  .stats-subtitle {
+    color: white;
+  }
+
+  .stats-card {
+    background-color: #1f2937;
+  }
+
+  .stats-card-label {
+    color: #9ca3af;
+  }
+
+  .history-table-container {
+    background-color: #1f2937;
+  }
+
+  .history-table-header {
+    background-color: #374151;
+  }
+
+  .history-table-row {
+    border-color: #374151;
+  }
+
+  .no-games-message {
+    background-color: #374151;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
