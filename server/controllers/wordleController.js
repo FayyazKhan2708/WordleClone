@@ -20,15 +20,20 @@ exports.getWord = async (req, res) => {
 
     const playedWordIds = playedToday.map((pw) => pw.word);
 
-    // Find a word the user hasn't played today
-    const word = await Word.findOne({
+    // Find a word the user hasn't played today - now using random selection
+    const words = await Word.find({
       word: { $nin: playedWordIds },
       isAnswer: true,
-    }).sort({ usedCount: 1 });
+    });
 
-    if (!word) {
+    // If no words are available
+    if (!words || words.length === 0) {
       return res.status(404).json({ msg: "No available words found" });
     }
+
+    // Select a random word from the available words
+    const randomIndex = Math.floor(Math.random() * words.length);
+    const word = words[randomIndex];
 
     // Create a new game
     const game = new Game({
@@ -213,9 +218,19 @@ exports.validateWord = async (req, res) => {
       return res.status(400).json({ valid: false });
     }
 
+    // First check if the word exists in our database
     const wordExists = await Word.findOne({ word: word.toLowerCase() });
 
-    res.json({ valid: !!wordExists });
+    if (wordExists) {
+      return res.json({ valid: true });
+    }
+
+    // If not in our database, we'll consider it a valid word if:
+    // 1. It's exactly 5 letters
+    // 2. Contains only alphabetic characters
+    const isValidFormat = /^[a-zA-Z]{5}$/.test(word);
+
+    res.json({ valid: isValidFormat });
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server error");

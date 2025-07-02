@@ -71,7 +71,7 @@ WordleClone/
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/yourusername/wordle-clone.git
+   git clone https://github.com/FayyazKhan2708/WordleClone.git
    cd wordle-clone
    ```
 
@@ -184,18 +184,6 @@ This application can be deployed to platforms like:
 - [Client Documentation](./client/README.md)
 - [Server Documentation](./server/README.md)
 
-## 📝 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
 ## 👨‍💻 Author
 
 Created with ❤️ by Fayaz Khan
-
----
-
-<p align="center">
-  <a href="https://github.com/yourusername/wordle-clone">
-    <img src="https://img.shields.io/github/stars/yourusername/wordle-clone?style=social" alt="GitHub stars" />
-  </a>
-</p>

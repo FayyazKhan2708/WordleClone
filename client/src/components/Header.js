@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import DarkModeToggle from "./DarkModeToggle";
 import "../styles/Header.css";
@@ -8,6 +8,11 @@ import HowToPlay from "./HowToPlay";
 const Header = () => {
   const { user, logout } = useAuth();
   const [showHowToPlay, setShowHowToPlay] = useState(false);
+  const location = useLocation();
+  
+  // Check current path
+  const isLoginPage = location.pathname === "/login";
+  const isRegisterPage = location.pathname === "/register";
 
   return (
     <header className="header">
@@ -47,16 +52,20 @@ const Header = () => {
               </>
             ) : (
               <>
-                <li>
-                  <Link to="/login" className="header-button">
-                    Login
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/register" className="header-button">
-                    Register
-                  </Link>
-                </li>
+                {!isLoginPage && (
+                  <li>
+                    <Link to="/login" className="header-button">
+                      Login
+                    </Link>
+                  </li>
+                )}
+                {!isRegisterPage && (
+                  <li>
+                    <Link to="/register" className="header-button">
+                      Register
+                    </Link>
+                  </li>
+                )}
               </>
             )}
           </ul>
